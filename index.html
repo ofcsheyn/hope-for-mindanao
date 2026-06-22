@@ -1,1 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope for Mindanao | Earthquake Relief Fund</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+    line-height:1.6;
+}
+
+/* Navigation */
+nav{
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+}
+
+nav a{
+    color:#0b3d91;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:600;
+    transition:color 0.3s;
+}
+
+nav a:hover{
+    color:#ff6b35;
+}
+
+/* Hero Section */
+.hero{
+    background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:15px;
+    text-shadow:2px 2px 4px rgba(0,0,0,.3);
+}
+
+.hero p{
+    font-size:1.3rem;
+    max-width:800px;
+    margin:auto;
+    text-shadow:1px 1px 2px rgba(0,0,0,.3);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#ff6b35;
+    color:white;
+    padding:14px 30px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:background 0.3s, transform 0.2s;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+.btn:hover{
+    background:#e55a2b;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(255,107,53,.3);
+}
+
+.btn-secondary{
+    background:#0b3d91;
+}
+
+.btn-secondary:hover{
+    background:#082855;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0b3d91;
+    font-size:2.5rem;
+}
+
+.section-title:after{
+    content:'';
+    display:block;
+    width:80px;
+    height:4px;
+    background:#ff6b35;
+    margin:15px auto 0;
+}
+
+/* Impact Counter */
+.impact-counter{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
+    margin:40px 0;
+}
+
+.counter-card{
+    background:linear-gradient(135deg, #0b3d91 0%, #1a5cb8 100%);
+    color:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.counter-card h3{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.counter-card p{
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.card h3{
+    color:#0b3d91;
+    margin-bottom:15px;
+    font-size:1.5rem;
+}
+
+.card p{
+    color:#666;
+}
+
+/* Donation Section */
+.donation{
+    background:linear-gradient(135deg, #0b3d91 0%, #1a5cb8 100%);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.donation h2{
+    margin-bottom:30px;
+    font-size:2.5rem;
+}
+
+/* Donation Form */
+.donation-form{
+    background:white;
+    color:#333;
+    max-width:600px;
+    margin:30px auto;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.donation-form h3{
+    color:#0b3d91;
+    margin-bottom:20px;
+}
+
+.amount-presets{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(100px, 1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.amount-btn{
+    padding:12px;
+    border:2px solid #0b3d91;
+    background:white;
+    color:#0b3d91;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:all 0.3s;
+}
+
+.amount-btn:hover, .amount-btn.active{
+    background:#0b3d91;
+    color:white;
+}
+
+.form-group{
+    margin:20px 0;
+    text-align:left;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#0b3d91;
+}
+
+.form-group input, .form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:1rem;
+}
+
+.form-group input:focus, .form-group select:focus{
+    outline:none;
+    border-color:#0b3d91;
+    box-shadow:0 0 5px rgba(11,61,145,.3);
+}
+
+/* GCash Section */
+.gcash{
+    background:white;
+    color:#333;
+    max-width:500px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:12px;
+    border-left:5px solid #ff6b35;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+.gcash h3{
+    color:#0b3d91;
+    margin-bottom:20px;
+}
+
+.gcash p{
+    margin:12px 0;
+    line-height:1.8;
+}
+
+.gcash strong{
+    color:#ff6b35;
+}
+
+/* Social Media */
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:30px 0;
+}
+
+.social-links a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:50px;
+    height:50px;
+    background:#0b3d91;
+    color:white;
+    border-radius:50%;
+    text-decoration:none;
+    transition:background 0.3s, transform 0.2s;
+    font-size:1.5rem;
+}
+
+.social-links a:hover{
+    background:#ff6b35;
+    transform:scale(1.1);
+}
+
+/* FAQ Section */
+.faq{
+    max-width:800px;
+    margin:40px auto;
+}
+
+.faq-item{
+    background:white;
+    margin:15px 0;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.faq-question{
+    background:#f0f4f9;
+    padding:20px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#0b3d91;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:background 0.3s;
+}
+
+.faq-question:hover{
+    background:#e6ecf7;
+}
+
+.faq-answer{
+    padding:20px;
+    display:none;
+    color:#666;
+}
+
+.faq-answer.active{
+    display:block;
+}
+
+/* Contact Section */
+.contact{
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+}
+
+.contact-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+    margin:40px 0;
+}
+
+.contact-card{
+    padding:30px;
+    background:#f5f7fa;
+    border-radius:10px;
+}
+
+.contact-card h4{
+    color:#0b3d91;
+    margin-bottom:15px;
+    font-size:1.3rem;
+}
+
+/* Footer */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer p{
+    margin:10px 0;
+}
+
+.footer-links{
+    margin:20px 0;
+}
+
+.footer-links a{
+    color:#ff6b35;
+    text-decoration:none;
+    margin:0 15px;
+    transition:color 0.3s;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+    
+    .hero p{
+        font-size:1rem;
+    }
+    
+    nav a{
+        margin:0 10px;
+        font-size:0.9rem;
+    }
+    
+    .section-title{
+        font-size:2rem;
+    }
+    
+    .donation-form{
+        padding:20px;
+    }
+    
+    .amount-presets{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Hope for Mindanao</h1>
+    <p>
+        Supporting families affected by the devastating 7.8 Magnitude Earthquake in Mindanao.
+        Every donation helps provide food, water, shelter, and emergency assistance.
+    </p>
+    <a href="#donate" class="btn">Donate Now</a>
+</section>
+
+<!-- About Section -->
+<section class="container" id="about">
+    <h2 class="section-title">About This Campaign</h2>
+    <p style="text-align:center; max-width:850px; margin:auto; font-size:1.1rem; color:#555;">
+        My name is <strong>Allanah Shane C. Narvaez</strong>, a Filipino currently working in Dubai.
+        This fundraising initiative aims to provide emergency relief and recovery assistance to
+        families affected by the recent earthquake in Mindanao. Together, we can help communities rebuild and recover.
+    </p>
+    <div class="social-links">
+        <a href="https://www.facebook.com/share/1a7KZH8dLo/" target="_blank" title="Facebook">f</a>
+        <a href="https://wa.me/971586620355?text=Hello%20Allanah%20Shane%20C.%20Narvaez" target="_blank" title="WhatsApp">💬</a>
+        <a href="https://twitter.com" target="_blank" title="Twitter">𝕏</a>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section class="container" id="impact">
+    <h2 class="section-title">Our Impact</h2>
+    <div class="impact-counter">
+        <div class="counter-card">
+            <h3>500+</h3>
+            <p>Families Helped</p>
+        </div>
+        <div class="counter-card">
+            <h3>₱1.2M+</h3>
+            <p>Funds Raised</p>
+        </div>
+        <div class="counter-card">
+            <h3>2000+</h3>
+            <p>Relief Packs Distributed</p>
+        </div>
+    </div>
+</section>
+
+<!-- How Donations Help -->
+<section class="container">
+    <h2 class="section-title">How Donations Help</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>🍽️ Food Packs</h3>
+            <p>Emergency food supplies for displaced families.</p>
+        </div>
+        <div class="card">
+            <h3>💧 Clean Water</h3>
+            <p>Safe drinking water and hygiene kits.</p>
+        </div>
+        <div class="card">
+            <h3>🏠 Shelter</h3>
+            <p>Temporary shelter materials and essentials.</p>
+        </div>
+        <div class="card">
+            <h3>⚕️ Medical Aid</h3>
+            <p>Basic medicines and healthcare support.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Donation Section -->
+<section class="donation" id="donate">
+    <h2>Make a Donation</h2>
+    
+    <!-- Donation Form -->
+    <div class="donation-form">
+        <h3>Choose Your Amount</h3>
+        <div class="amount-presets">
+            <button class="amount-btn" onclick="setAmount(500)">₱500</button>
+            <button class="amount-btn" onclick="setAmount(1000)">₱1,000</button>
+            <button class="amount-btn" onclick="setAmount(2500)">₱2,500</button>
+            <button class="amount-btn" onclick="setAmount(5000)">₱5,000</button>
+            <button class="amount-btn" onclick="setAmount(10000)">₱10,000</button>
+            <button class="amount-btn" onclick="setAmount(0)">Custom</button>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="amount">Amount (PHP):</label>
+                <input type="number" id="amount" placeholder="Enter amount" min="100" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (Optional):</label>
+                <input type="text" id="message" placeholder="Your message or prayer">
+            </div>
+            <button type="submit" class="btn btn-secondary" style="width:100%;">Proceed to GCash Payment</button>
+        </form>
+    </div>
+
+    <!-- GCash Details -->
+    <div class="gcash">
+        <h3>💳 GCash Payment Details</h3>
+        <p><strong>Name:</strong> Allanah Shane C. Narvaez</p>
+        <p><strong>GCash Number:</strong> <span style="font-size:1.2rem; color:#0b3d91;">+63 958 662 0355</span></p>
+        <p style="margin-top:20px; font-size:0.95rem; color:#666;">
+            Please include your name and "Mindanao Relief" in the GCash transfer message.
+        </p>
+    </div>
+
+    <p style="margin-top:30px; font-size:1.1rem;">
+        Every contribution, regardless of size, helps bring hope to affected families.
+    </p>
+</section>
+
+<!-- FAQ Section -->
+<section class="container" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Where does my donation go?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                All donations are used to purchase and distribute food packs, water supplies, shelter materials, and medical aid to affected families in Mindanao. Detailed reports are shared regularly on our social media channels.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Is this initiative registered?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                This is a personal fundraising initiative by Allanah Shane C. Narvaez. All donations are transparently accounted for and used solely for relief efforts. Updates and proof of distribution are shared regularly.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I donate in other ways?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Currently, GCash is the primary donation method. For other payment options or to make bulk donations, please contact us via WhatsApp at +971 58 662 0355.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Will I receive a receipt?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, a confirmation and receipt will be sent to your email. You will also receive updates on how your donation is being used.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I volunteer or help in other ways?</span>
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely! Contact us via WhatsApp at +971 58 662 0355 to learn about volunteer opportunities, in-kind donations, or other ways you can support this relief effort.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Transparency Section -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Transparency & Updates</h2>
+    <p style="font-size:1.1rem; max-width:800px; margin:20px auto; color:#555;">
+        Donation reports, purchases, and relief distributions will be shared regularly
+        to ensure transparency and accountability. Follow our social media channels for live updates.
+    </p>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+        <div class="contact-card">
+            <h4>📍 Location</h4>
+            <p>Dubai, United Arab Emirates</p>
+        </div>
+        <div class="contact-card">
+            <h4>💬 WhatsApp</h4>
+            <p>+971 58 662 0355</p>
+        </div>
+        <div class="contact-card">
+            <h4>👤 Contact</h4>
+            <p>Allanah Shane C. Narvaez</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Hope for Mindanao Relief Fund | Together We Rebuild</p>
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <p style="font-size:0.9rem; margin-top:20px; opacity:0.8;">
+        Made with ❤️ for the people of Mindanao
+    </p>
+</footer>
+
+<script>
+// Toggle FAQ answers
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    const question = element;
+    
+    // Close other FAQs
+    document.querySelectorAll('.faq-answer.active').forEach(item => {
+        if (item !== answer) {
+            item.classList.remove('active');
+            item.previousElementSibling.querySelector('span:last-child').textContent = '+';
+        }
+    });
+    
+    // Toggle current FAQ
+    answer.classList.toggle('active');
+    question.querySelector('span:last-child').textContent = answer.classList.contains('active') ? '−' : '+';
+}
+
+// Set donation amount
+function setAmount(amount) {
+    document.getElementById('amount').value = amount === 0 ? '' : amount;
+    
+    // Update button styles
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+// Form submission
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const amount = document.getElementById('amount').value;
+    const name = document.getElementById('name').value;
+    
+    if (amount < 100) {
+        alert('Minimum donation is ₱100');
+        return;
+    }
+    
+    alert(`Thank you ${name}! Your donation of ₱${amount} will help families in Mindanao.\n\nPlease send the amount via GCash to: +63 958 662 0355\nMessage: "${name} - Mindanao Relief"`);
+});
+</script>
+
+</body>
+</html>
